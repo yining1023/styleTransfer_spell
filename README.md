@@ -1,6 +1,8 @@
 # styleTransfer_spell
 Style Transfer example with [ml5.js](http://ml5js.org/), training the model with [Spell.run](https://learn.spell.run/)
 
+#### Demo: [https://yining1023.github.io/styleTransfer_spell/](https://yining1023.github.io/styleTransfer_spell/.)
+
 ## Training a style transfer model with Spell!
 
 [Transferring Style Tutorial from Spell](https://learn.spell.run/transferring_style)
