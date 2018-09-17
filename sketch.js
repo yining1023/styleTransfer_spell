@@ -12,7 +12,7 @@ This uses a pre-trained model of The Great Wave off Kanagawa and Udnie (Young Am
 let inputImg;
 let statusMsg;
 let transferBtn;
-let style1;
+let style1, style2;
 
 function setup() {
   noCanvas();
@@ -28,12 +28,13 @@ function setup() {
 
   // Create two Style methods with different pre-trained models
   style1 = ml5.styleTransfer('models/fuchun', modelLoaded);
+  style2 = ml5.styleTransfer('models/zhangdaqian', modelLoaded);
 }
 
 // A function to be called when the models have loaded
 function modelLoaded() {
   // Check if both models are loaded
-  if(style1.ready){
+  if(style1.ready && style2.ready){
     statusMsg.html('Ready!')
   }
 }
@@ -43,7 +44,11 @@ function transferImages() {
   statusMsg.html('Applying Style Transfer...!');
   
   style1.transfer(inputImg, function(err, result) {
-    createImg(result.src).parent('output');
+    createImg(result.src).parent('output1');
+  });
+
+  style2.transfer(inputImg, function(err, result) {
+    createImg(result.src).parent('output2');
   });
 
   statusMsg.html('Done!');

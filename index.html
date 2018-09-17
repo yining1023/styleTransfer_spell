@@ -18,11 +18,15 @@
   <style>
   #inputImg {
     width: 500px;
+    height: 500px;
   }
 
   img {
-    height: 500px;
     display: inline;
+  }
+
+  .styleImg {
+    height: 300px;
   }
   </style>
 </head>
@@ -33,16 +37,23 @@
   <h1>Training the model with Spell.run</h1>
   <p id="statusMsg">Loading Models...</p>
   <button id="transferBtn">Transfer!</button>
-  <p>Input Image:</p>
-
-  <div id="output">
-    <img src="img/nycbridge.jpg" alt="input img" id="inputImg">
-  </div>
-  
 
   <div id="styleA">
-    <p>Style Image: <a target="_blank" href="https://en.wikipedia.org/wiki/Dwelling_in_the_Fuchun_Mountains">Dwelling in the Fuchun Mountains</a></p>
-    <img src="img/fuchun.jpg" alt="style one">
+    <p>Style A: <a target="_blank" href="https://en.wikipedia.org/wiki/Dwelling_in_the_Fuchun_Mountains">Dwelling in the Fuchun Mountains (1350) - Huang Gongwang</a></p>
+    <img class="styleImg" src="img/fuchun.jpg" alt="style one">
+    <p>Input Image:</p>
+    <div id="output1">
+      <img src="img/nycbridge.jpg" alt="input img" id="inputImg">
+    </div>
+  </div>
+
+  <div id="styleB">
+    <p>Style B: <a target="_blank" href="https://en.wikipedia.org/wiki/Zhang_Daqian">Red Lotuses in Splashed Color (1981) - Zhang Daqian</a></p>
+    <img class="styleImg" src="img/zhangdaqian2.jpg" alt="style two">
+    <p>Input Image:</p>
+    <div id="output2">
+      <img src="img/nycbridge.jpg" alt="input img" id="inputImg">
+    </div>
   </div>
 
   <script src="sketch.js"></script>
