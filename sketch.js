@@ -9,47 +9,37 @@ Style Transfer Image Example using p5.js
 This uses a pre-trained model of The Great Wave off Kanagawa and Udnie (Young American Girl, The Dance)
 === */
 
-let inputImg;
-let statusMsg;
-let transferBtn;
-let style1, style2;
+let style;
+let video;
+let resultImg;
 
 function setup() {
-  noCanvas();
-  // Status Msg
-  statusMsg = select('#statusMsg');
+  createCanvas(320, 240).parent('canvasContainer');
 
-  // Get the input image
-  inputImg = select('#inputImg');
+  video = createCapture(VIDEO);
+  video.hide();
 
-  // Transfer Button
-  transferBtn = select('#transferBtn')
-  transferBtn.mousePressed(transferImages);
+  // The results image from the style transfer
+  resultImg = createImg('');
+  resultImg.hide();
 
-  // Create two Style methods with different pre-trained models
-  style1 = ml5.styleTransfer('models/fuchun', modelLoaded);
-  style2 = ml5.styleTransfer('models/zhangdaqian', modelLoaded);
+  // Create a new Style Transfer method with a defined style.
+  // We give the video as the second argument
+  style = ml5.styleTransfer('models/fuchun', video, modelLoaded);
 }
 
-// A function to be called when the models have loaded
+function draw(){
+  image(resultImg, 0, 0, 320, 240);
+}
+
+// A function to call when the model has been loaded.
 function modelLoaded() {
-  // Check if both models are loaded
-  if(style1.ready && style2.ready){
-    statusMsg.html('Ready!')
-  }
+  select('#status').html('Model Loaded');
+  style.transfer(gotResult);
 }
 
-// Apply the transfer to both images!
-function transferImages() {
-  statusMsg.html('Applying Style Transfer...!');
-  
-  style1.transfer(inputImg, function(err, result) {
-    createImg(result.src).parent('output1');
-  });
-
-  style2.transfer(inputImg, function(err, result) {
-    createImg(result.src).parent('output2');
-  });
-
-  statusMsg.html('Done!');
+// When we get the results, update the result image src
+function gotResult(err, img) {
+  resultImg.attribute('src', img.src);
+  style.transfer(gotResult);
 }
