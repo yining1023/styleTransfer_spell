@@ -15,6 +15,8 @@ Check out [Transferring Style Tutorial from Spell](https://learn.spell.run/trans
 I used the [TensorFlow implementation of fast style tranfer](https://github.com/lengstrom/fast-style-transfer) developed by [Logan Engstrom](https://github.com/lengstrom). And the [fast-style-transfer-deeplearnjs](https://github.com/reiinakano/fast-style-transfer-deeplearnjs) by [Reiichiro Nakano](https://github.com/reiinakano) to convert the tensforflow model to a tf.js model that can used in ml5.js
 
 ### 0. Setup Spell.run
+Sign up on Spell.run, login
+
 You can skip the following two steps if you have pip installed already.
 ```
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
