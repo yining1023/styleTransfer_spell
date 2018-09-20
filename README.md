@@ -19,12 +19,14 @@ You can skip the following two steps if you have pip installed already.
 ```
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
 $ python get-pip.py
+
 ```
 Install spell, and log into spell
 ```
 $ pip install spell
 $ spell
 $ spell login
+
 ```
 
 ### 1. Preparing your environment
@@ -32,6 +34,7 @@ Clone [the fast-style-transfer git repo from github](https://github.com/lengstro
 ```
 $ git clone https://github.com/lengstrom/fast-style-transfer
 $ cd fast-style-transfer
+
 ```
 
 Create some folders and files
@@ -40,6 +43,7 @@ $ mkdir ckpt/
 $ touch ckpt/.gitignore
 $ mkdir images
 $ mkdir images/style
+
 ```
 
 Put a "style" image into the images/style directory. There needs to be at least one image in this folder.
@@ -48,10 +52,13 @@ Add the changes and commit it to git.
 ```
 $ git add images ckpt
 $ git commit -m "Added required folders and images"
+
 ```
 
 ### 2. Downloading Datasets
+```
 $ spell run --machine-type CPU ./setup.sh
+```
 It took me 1.5 hours to finish this run. The dataset is large, it takes time to save to Spell.
 
 ### 3. Training with style.py
@@ -67,6 +74,7 @@ spell run --mount runs/THE_RUN_NUMBER_OF_YOUR_SETUP_RUN/data:datasets \
   --style-weight 1.5e2 \
   --train-path datasets/train2014 \
   --vgg-path datasets/imagenet-vgg-verydeep-19.mat"
+  
 ```
 Remember to replace the `THE_RUN_NUMBER_OF_YOUR_SETUP_RUN` and `YOUR_STYLE_IMAGE_NAME`.
 I used V100 machine. This run took me ~2 hours. And it created files in the `ckpt` folder.
@@ -77,6 +85,7 @@ You can go to any directory that you want to save the files in and run -
 spell ls runs/YOUR_RUN_NUMBER
 spell ls runs/YOUR_RUN_NUMBER/ckpt
 spell cp runs/YOUR_RUN_NUMBER/ckpt
+
 ```
 Remember to replace YOUR_RUN_NUMBER.
 
@@ -103,6 +112,7 @@ Change `style = ml5.styleTransfer('models/fuchun', modelLoaded);` to your model 
 Run the code
 ```
 python -m SimpleHTTPServer
+
 ```
 Go to `localhost:8000`, you should be able to see the model working!
 
