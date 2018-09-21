@@ -25,7 +25,7 @@ function setup() {
 
   // Create a new Style Transfer method with a defined style.
   // We give the video as the second argument
-  style = ml5.styleTransfer('models/lotus', video, modelLoaded);
+  style = ml5.styleTransfer('models/fuchun', video, modelLoaded);
 }
 
 function draw(){
