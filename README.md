@@ -15,6 +15,8 @@ Check out [Transferring Style Tutorial from Spell](https://learn.spell.run/trans
 I used the [TensorFlow implementation of fast style tranfer](https://github.com/lengstrom/fast-style-transfer) developed by [Logan Engstrom](https://github.com/lengstrom). And the [fast-style-transfer-deeplearnjs](https://github.com/reiinakano/fast-style-transfer-deeplearnjs) by [Reiichiro Nakano](https://github.com/reiinakano) to convert the tensforflow model to a tf.js model that can used in ml5.js
 
 ### 0. Setup Spell.run
+Sign up on Spell.run, login
+
 You can skip the following two steps if you have pip installed already.
 ```
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
@@ -98,7 +100,7 @@ cd fast-style-transfer-deeplearnjs
 
 Put the checkpoint files we downloaded from spell into the current directory,
 ```
-python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/fuchun --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
+python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_FOLDER_NAME --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
 
 python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/YOUR_FOLDER_NAME
 
