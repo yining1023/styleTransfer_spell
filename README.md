@@ -100,7 +100,7 @@ cd fast-style-transfer-deeplearnjs
 
 Put the checkpoint files we downloaded from spell into the current directory,
 ```
-python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/fuchun --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
+python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_FOLDER_NAME --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
 
 python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/YOUR_FOLDER_NAME
 
