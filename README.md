@@ -3,6 +3,8 @@ Style Transfer example with [ml5.js](http://ml5js.org/), training the model with
 
 #### Demo: [https://yining1023.github.io/styleTransfer_spell/](https://yining1023.github.io/styleTransfer_spell/.)
 
+Here are some [slides](https://bit.ly/2xB9t8K) that introduce what is style transfer and how does it work.
+
 ## Training a style transfer model with Spell!
 
 Check out [Transferring Style Tutorial from Spell](https://learn.spell.run/transferring_style) for more info about steps 1 - 3.
