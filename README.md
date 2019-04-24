@@ -21,7 +21,7 @@ Sign up on Spell.run, login
 
 You can skip the following two steps if you have pip installed already.
 ```
-$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 $ python get-pip.py
 
 ```
