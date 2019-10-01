@@ -99,6 +99,11 @@ Go to a new directory,
 git clone https://github.com/reiinakano/fast-style-transfer-deeplearnjs.git
 cd fast-style-transfer-deeplearnjs
 ```
+Install Tensorflow on your local computer: [How to install Tensorflow](https://www.tensorflow.org/install/pip)
+Verify if you have tensorflow installed:
+```
+python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+```
 
 Put the checkpoint files we downloaded from spell into the current directory,
 ```
@@ -107,6 +112,7 @@ python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_FOLDER_NAME -
 python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/YOUR_FOLDER_NAME
 
 ```
+
 Remember to replace `YOUR_FOLDER_NAME`, the folder that holds all the checkpoint files.
 It will create a new folder in `src/ckpts` with 49 items including a manifest.json file.
 
