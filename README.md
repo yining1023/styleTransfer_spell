@@ -110,7 +110,7 @@ Verify if you have tensorflow installed:
 python -c "import tensorflow as tf;"
 ```
 
-<b>Put the checkpoint files we downloaded from spell into the current directory<b>(Plz don't forget this step :))
+<b>Put the checkpoint files we downloaded from spell into the current directory</b>(Plz don't forget this step :))
 ```
 python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_FOLDER_NAME --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
 
