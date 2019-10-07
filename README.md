@@ -125,6 +125,7 @@ It will create a new folder in `src/ckpts` with 49 items including a manifest.js
 
 ### <a name="step4-2"></a> 4.2 Converting model to ml5js with Spell
 *** If you finished step 4 successfully(installed tensorflow successfully), skip this step.***
+
 If you have trouble installing tensorflow on your computer, you can convert the model using spell's remote machine which has tensorflow installed: `YOUR_PREVIOUS_TRAINING_RUN_NUMBER` is the run number where you trained the model from Step 3, `YOUR_STYLE_MODEL_NAME` can be any string you want.
 ```
 spell run --mount runs/YOUR_PREVIOUS_TRAINING_RUN_NUMBER/ckpt:YOUR_STYLE_MODEL_NAME --machine-type CPU --framework tensorflow==1.13.1 "python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_STYLE_MODEL_NAME --checkpoint_file=./YOUR_STYLE_MODEL_NAME/fns.ckpt"
