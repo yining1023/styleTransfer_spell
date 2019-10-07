@@ -2,7 +2,7 @@
 Style Transfer example with [ml5.js](http://ml5js.org/), training the model with [Spell.run](https://learn.spell.run/)
 
 #### Demo: [https://yining1023.github.io/styleTransfer_spell/](https://yining1023.github.io/styleTransfer_spell/.)
-
+https://github.com/yining1023/styleTransfer_spell
 Here are some [slides](https://bit.ly/2xB9t8K) that introduce what is style transfer and how does it work.
 
 ## Training a style transfer model with Spell!
@@ -110,6 +110,8 @@ Verify if you have tensorflow installed:
 python -c "import tensorflow as tf;"
 ```
 
+<b>If you have trouble installing tensorflow on your local computer, you can also use Spell to convert the model.</b> You can skip the rest of the Step 4, can go to [step 4.2](#step4-2)
+
 <b>Put the checkpoint files we downloaded from spell into the current directory</b>(Plz don't forget this step :))
 ```
 python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_FOLDER_NAME --checkpoint_file=./YOUR_FOLDER_NAME/fns.ckpt
@@ -121,13 +123,34 @@ python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/YOUR_FOLDER_
 Remember to replace `YOUR_FOLDER_NAME`, the folder that holds all the checkpoint files.
 It will create a new folder in `src/ckpts` with 49 items including a manifest.json file.
 
-### 5. Run the model in ml5js
+### <a name="step4-2"></a> 4.2 Converting model to ml5js with Spell
+*** If you finished step 4 successfully(installed tensorflow successfully), skip this step.***
+If you have trouble installing tensorflow on your computer, you can convert the model using spell's remote machine which has tensorflow installed: `YOUR_PREVIOUS_TRAINING_RUN_NUMBER` is the run number where you trained the model from Step 3, `YOUR_STYLE_MODEL_NAME` can be any string you want.
+```
+spell run --mount runs/YOUR_PREVIOUS_TRAINING_RUN_NUMBER/ckpt:YOUR_STYLE_MODEL_NAME --machine-type CPU --framework tensorflow==1.13.1 "python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/YOUR_STYLE_MODEL_NAME --checkpoint_file=./YOUR_STYLE_MODEL_NAME/fns.ckpt"
+```
+Then copy the output of this run back to your local computer:
+```
+spell cp runs/YOUR_PREVIOUS_RUN_NUMBER/src/ckpts
+```
+After this command, you will find a folder named `YOUR_STYLE_MODEL_NAME` in your `fast-style-transfer-deeplearnjs` folder. `YOUR_STYLE_MODEL_NAME` folder shoud have 14p items including a `manifest.json` file.
+
+### 5. Running the model in ml5js
+Go to a new directory,
+```
+git clone git@github.com:yining1023/styleTransfer_spell.git
+cd styleTransfer_spell
+```
 Copy the folder we got from step 4 and put it into /models.
-Change `style = ml5.styleTransfer('models/fuchun', modelLoaded);` to your model file path.
+Change `style = ml5.styleTransfer('models/fuchun', modelLoaded);` to your model file path(replace `fuchun` to `YOUR_STYLE_MODEL_NAME`).
 Run the code
 ```
 python -m SimpleHTTPServer
 
+```
+If you are using python3, run
+```
+python3 -m http.server
 ```
 Go to `localhost:8000`, you should be able to see the model working!
 
