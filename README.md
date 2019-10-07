@@ -144,3 +144,19 @@ python3 -m http.server
 ```
 Go to `localhost:8000`, you should be able to see the model working!
 
+
+## Some issues you might have when training the model with spell
+- During [step 1](https://github.com/yining1023/styleTransfer_spell#1-preparing-your-environment) preparing your environment, after you add your style image to the `style` folder, you need to commit the changes to git, so the remote spell machine can get access to your changes. 
+  ```
+  $ git add images ckpt
+  $ git commit -m "Added required folders and images"
+  ```
+- When you are on [step 3](https://github.com/yining1023/styleTransfer_spell#3-training-with-stylepy) Training with style.py, you need to choose a GPU machine type, CPU machine wouldn't work.
+  ```
+  --machine-type k80
+  ```
+
+- On [step 4](https://github.com/yining1023/styleTransfer_spell#4-converting-model-to-ml5js) Converting the model to ml5js, you need to install TensorFlow on your local computer. See more instruction [here](https://www.tensorflow.org/install/pip). Or you can run these commands on Spell, so you don't need to install TensorFlow locally, after you are done, `spell cp` your model back to your local computer.
+
+- Remember to replace things like 'YOUR_RUN_NUMBER', 'YOUR_FOLDER_NAME', 'YOUR_STYLE_IMAGE_NAME' to your own number and names.
+
