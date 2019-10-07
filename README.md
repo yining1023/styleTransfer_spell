@@ -67,18 +67,7 @@ It took me 1.5 hours to finish this run. The dataset is large, it takes time to 
 
 ### 3. Training with style.py
 ```
-spell run --mount runs/THE_RUN_NUMBER_OF_YOUR_SETUP_RUN/data:datasets \
-            --machine-type k80 \
-            --framework tensorflow \
-            --apt ffmpeg \
-            --pip moviepy \
-            --pip scipy==1.1.0 \
-  "python style.py \
-  --checkpoint-dir ckpt \
-  --style images/style/YOUR_STYLE_IMAGE_NAME.jpg \
-  --style-weight 1.5e2 \
-  --train-path datasets/train2014 \
-  --vgg-path datasets/imagenet-vgg-verydeep-19.mat"
+spell run --mount runs/THE_RUN_NUMBER_OF_YOUR_SETUP_RUN/data:datasets --machine-type k80 --framework tensorflow --apt ffmpeg --pip moviepy --pip scipy==1.1.0 "python style.py --checkpoint-dir ckpt --style images/style/YOUR_STYLE_IMAGE_NAME.jpg --style-weight 1.5e2 --train-path datasets/train2014 --vgg-path datasets/imagenet-vgg-verydeep-19.mat"
   
 ```
 Remember to replace the `THE_RUN_NUMBER_OF_YOUR_SETUP_RUN` and `YOUR_STYLE_IMAGE_NAME`.
