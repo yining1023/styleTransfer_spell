@@ -123,7 +123,7 @@ Then copy the output of this run back to your local computer:
 ```
 spell cp runs/YOUR_PREVIOUS_RUN_NUMBER/src/ckpts
 ```
-After this command, you will find a folder named `YOUR_STYLE_MODEL_NAME` in your `fast-style-transfer-deeplearnjs` folder. `YOUR_STYLE_MODEL_NAME` folder shoud have 14p items including a `manifest.json` file.
+After this command, you will find a folder named `YOUR_STYLE_MODEL_NAME` in your `fast-style-transfer-deeplearnjs` folder. `YOUR_STYLE_MODEL_NAME` folder shoud have 49 items including a `manifest.json` file.
 
 ### 5. Running the model in ml5js
 Go to a new directory,
